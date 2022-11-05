@@ -1,4 +1,4 @@
-name: Udaconnect-api - Package with Docker
+name: udaconnect-location-ingester - Package with Docker
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ablazearrow/udaconnect-api
+          images: ablazearrow/udaconnect-location-ingester
           tags: |
             type=semver,pattern={{raw}}, value=v1.0.0
       -
@@ -37,8 +37,8 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: ./modules/api
-          file: ./modules/api/Dockerfile
+          context: ./modules/location-ingester
+          file: ./modules/location-ingester/Dockerfile
           platforms: linux/amd64
           push: true
           tags: ${{ steps.meta.outputs.tags }}
