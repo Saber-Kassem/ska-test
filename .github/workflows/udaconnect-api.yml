@@ -10,7 +10,10 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-      -
+      - 
+        name: Checkout
+        uses: actions/checkout@v3
+      -  
         name: Docker meta
         id: meta
         uses: docker/metadata-action@v4
@@ -34,7 +37,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: ./modules/api
+          context: .
           file: ./modules/api/Dockerfile
           platforms: linux/amd64
           push: true
