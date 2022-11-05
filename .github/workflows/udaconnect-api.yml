@@ -18,7 +18,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ablazearrow/udaconnect-api
+          images: ablazearrow/udaconnect-api/uda-api
           tags: |
             type=semver,pattern={{raw}}, value=v1.0.0
       -
